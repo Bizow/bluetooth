@@ -1,0 +1,22 @@
+
+<template name="serviceList">
+    <ul>
+        {{#each services}}
+            {{> serviceItem data=this parent=self}}
+        {{/each}}
+    </ul>
+</template>
+
+<template name="serviceItem">
+    <li>
+        <button data-start-notification>Start Notification</button>
+        <button data-read>Read</button>
+        <br>
+        {{#if isCounter}}
+            ^^^^Scratch counter^^^^
+        {{else}}
+            service: {{data.service}}<br>
+            characteristic: {{data.characteristic}}
+        {{/if}}
+    </li>
+</template>

@@ -1,0 +1,23 @@
+.device-container{
+    padding-top: 100px;
+}
+
+.messages{
+    background:black;
+    position: fixed;
+    overflow: scroll;
+    top: 0px;
+    left: 0px;
+    height:100px;
+    width: 100%;
+    margin: 0px;
+}
+
+.messages li{
+    color: white;
+}
+
+ul{
+    list-style-type: none;
+    padding-left:2px;
+}

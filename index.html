@@ -1,0 +1,49 @@
+<head>
+    <title>bluetooth</title>
+</head>
+
+<body>
+    {{> console}}
+    {{> devices}}
+</body>
+
+<template name="devices">
+    <div class="device-container">
+        <button data-enabled>Enabled</button>: {{enabled}}<br>
+        <span>____________________________________________</span>
+        {{#if scanning}}
+            <button data-stop-scan>Stop</button>
+        {{else}}
+            <button data-start-scan>Scan</button>
+        {{/if}}
+        <p>Available Devices</p>
+        <ul>
+            {{#each deviceList}}
+                <li>
+                    {{#if isConnectedDevice id}}
+                        <button data-disconnect>Disconnect: {{name}}</button><br>
+                    {{else}}
+                        <button data-connect>Connect: {{name}}</button><br>
+                    {{/if}}
+                    id: {{id}}<br>
+                    advertising: {{stringify advertising}}<br>
+                    rssi: {{rssi}}
+                </li>
+            {{/each}}
+        </ul>
+        <span>____________________________________________</span>
+        <p>
+            Available Services
+            <button data-start-all-notifications>
+                Start Notifications
+            </button>
+            <button data-read-all>
+                Read All
+            </button>
+        </p>
+    </div>
+    {{#if services}}
+        {{> serviceList parent=self}}
+    {{/if}}
+</template>
+
